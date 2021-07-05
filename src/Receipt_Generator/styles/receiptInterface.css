@@ -1,0 +1,39 @@
+#containerApane {
+    -fx-background-image: url('../images/receiptBG.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#separator1 *.line, #separator2 *.line {
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: black;
+    /*-fx-padding: 0 -5 0 0;*/
+}
+
+#titleLabel, #dateLabel1, #dateLabel2, #adviceLabel, #bodyTitleLabel, #nameLabel, #ageLabel, #cityLabel, #idLabel, #vTypeTitle, #bNoTitle, #dateTitle
+, #vTypeLabel, #bNoLabel, #dateLabel2, #thankLabel, #noteLabel {
+    -fx-text-fill: black;
+}
+
+#titleLabel {
+    -fx-font-size: 23px;
+    -fx-font-family: Verdana;
+}
+
+#dateLabel1 {
+    -fx-font-size: 10px;
+}
+
+#adviceLabel, #bodyTitleLabel, #thankLabel{
+    -fx-font-size: 13px;
+}
+
+#vTypeTitle, #bNoTitle, #dateTitle {
+    -fx-font-weight: bolder;
+}
+
+#noteLabel {
+    -fx-font-size: 9px;
+    -fx-text-fill: red;
+}

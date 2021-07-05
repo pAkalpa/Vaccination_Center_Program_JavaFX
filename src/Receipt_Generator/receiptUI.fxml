@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="containerApane" prefHeight="391.0" prefWidth="600.0" stylesheets="@styles/receiptInterface.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Receipt_Generator.receiptUIcontroller">
+   <children>
+      <GridPane fx:id="containerGrid" layoutX="251.0" layoutY="144.0" prefHeight="444.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="292.0" minWidth="0.0" prefWidth="20.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="600.0" minWidth="10.0" prefWidth="573.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="600.0" minWidth="10.0" prefWidth="20.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="183.0" minHeight="9.0" prefHeight="9.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="283.0" minHeight="10.0" prefHeight="184.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="123.0" minHeight="2.0" prefHeight="2.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="148.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane fx:id="titleGrid" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="110.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="351.0" minWidth="10.0" prefWidth="340.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="372.0" minWidth="10.0" prefWidth="120.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fx:id="logo" fitHeight="63.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="titleLabel" prefHeight="32.0" prefWidth="349.0" text="Covid-19 Vaccination Center" GridPane.columnIndex="1" />
+                  <GridPane GridPane.columnIndex="2">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="dateLabel1" text="Label" />
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+            <Separator fx:id="separator1" maxWidth="575.0" prefHeight="0.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <GridPane fx:id="bodyContainer" prefHeight="165.0" prefWidth="569.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+              <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="85.0" minHeight="8.0" prefHeight="22.0" valignment="TOP" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="175.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="200.0" minHeight="4.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="adviceLabel" prefHeight="24.0" prefWidth="576.0" text="Please keep this Receipt, which includes medical information about the vaccines you have received." GridPane.hgrow="ALWAYS" />
+                  <GridPane fx:id="bodyGrid" prefHeight="110.0" prefWidth="585.0" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="81.0" minHeight="26.0" prefHeight="26.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="138.0" minHeight="15.0" prefHeight="15.0" valignment="TOP" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="138.0" minHeight="15.0" prefHeight="15.0" valignment="TOP" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="138.0" minHeight="15.0" prefHeight="15.0" valignment="TOP" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="138.0" minHeight="15.0" prefHeight="15.0" valignment="TOP" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="bodyTitleLabel" text="Vaccinated Person Info:" />
+                        <Label fx:id="nameLabel" text="Label" GridPane.rowIndex="1" />
+                        <Label fx:id="ageLabel" text="Label" GridPane.rowIndex="2" />
+                        <Label fx:id="cityLabel" text="Label" GridPane.rowIndex="3" />
+                        <Label fx:id="idLabel" text="Label" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="bodyLowerGrid" alignment="CENTER" prefHeight="52.0" prefWidth="585.0" GridPane.rowIndex="2">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="vTypeTitle" text="Vaccince Type" />
+                        <Label fx:id="bNoTitle" text="Booth Number" GridPane.columnIndex="1" />
+                        <Label fx:id="dateTitle" text="Date" GridPane.columnIndex="2" />
+                     </children>
+                  </GridPane>
+                  <GridPane GridPane.rowIndex="3">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane prefHeight="37.0" prefWidth="585.0">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label fx:id="vTypeLabel" text="Label" />
+                              <Label fx:id="bNoLabel" text="Label" GridPane.columnIndex="1" />
+                              <Label fx:id="dateLabel2" text="Label" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </GridPane>
+            <Separator fx:id="separator2" maxWidth="575.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <GridPane fx:id="adviceGrid" GridPane.columnIndex="1" GridPane.rowIndex="5">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="thankLabel" text="Thank you for getting vaccinated for COVID-19 to keep you, your family, and&#10;your community healthy and safe." textAlignment="CENTER" />
+               </children>
+            </GridPane>
+            <GridPane fx:id="footerGrid" GridPane.columnIndex="1" GridPane.rowIndex="6">
+              <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="30.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="noteLabel" text="Note:&#10;Very common side effects in the first day or two include&#10; • having a painful, heavy feeling and tenderness in the arm where you had your injection&#10; • feeling tired&#10; • headache, aches and chills" />
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
