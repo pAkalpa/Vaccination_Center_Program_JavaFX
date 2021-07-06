@@ -1,9 +1,11 @@
+/*Main Container Style----------------------------------------------------------------*/
 #containerAPane {
     -fx-background-image: url('../images/mainBG.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
 
+/*Main Text Style----------------------------------------------------------------*/
 #fNameLabel, #fNameField, #sNameLabel, #sNameField, #ageLabel, #ageField,
 #cityLabel, #cityField, #idLabel, #idField, #vrLabel, #AZ, #Sino, #Pfi, #boothLabel,
 #booth0, #booth1, #booth2, #booth3, #booth4, #booth5{
@@ -12,12 +14,14 @@
     -fx-font-size: 15px;
 }
 
+/*Curve Border of fields*/
 #fNameField, #sNameField, #ageField, #cityField, #idField {
     -fx-border-radius: 50px;
     -fx-background-radius: 50px;
     -fx-border-color: #C1D4E6;
 }
 
+/*Button Style----------------------------------------------------------------*/
 #clrAll, #genR {
     -fx-font-family: "Segoe UI";
     -fx-font-size: 15px;
@@ -34,6 +38,7 @@
 }
 
 
+/*Button Hover Effect----------------------------------------------------------------*/
 #clrAll:hover, #genR:hover {
     -fx-background-color:
             rgba(0,0,0,0.08),
@@ -46,22 +51,26 @@
     -fx-font-size: 15px;
 }
 
+/*Button Press Effect----------------------------------------------------------------*/
 #clrAll:pressed, #genR:pressed {
     -fx-background-color: #C1D4E6;
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
 
+/*Date and Time Label Style----------------------------------------------------------------*/
 #dateTimeLabel {
     -fx-font-family: "Segoe UI";
     -fx-font-size: 13px;
 }
 
+/*Background Image Style----------------------------------------------------------------*/
 #pDetailPane {
     -fx-background-color: rgba(238, 238, 238, 0.61);
     -fx-border-radius: 9px;
 }
 
+/*Main title Style----------------------------------------------------------------*/
 #pDetailTitle {
     -fx-font-family: "Segoe UI";
     -fx-text-fill: black;

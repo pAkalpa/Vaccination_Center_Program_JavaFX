@@ -29,18 +29,22 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.util.Matrix;
 
 public class receiptUIcontroller {
+    /**
+     * This Method Show Receipt Window
+     * @throws Exception
+     */
     public static void generateReceiptInterface() throws Exception {
         Stage stage = new Stage();
-        stage.setTitle("Receipt");
+        stage.setTitle("Receipt"); // Set Window Title
         Parent root = FXMLLoader.load(receiptUIcontroller.class.getResource("receiptUI.fxml"));
-        root.getStylesheets().add(receiptUIcontroller.class.getResource("/Receipt_Generator/styles/receiptInterface.css").toString());
-        stage.getIcons().add(new Image(receiptUIcontroller.class.getResourceAsStream("images/titleLogo.png")));
-        stage.setAlwaysOnTop(true);
-        stage.setResizable(false);
-        stage.initModality(Modality.APPLICATION_MODAL);
+        root.getStylesheets().add(receiptUIcontroller.class.getResource("/Receipt_Generator/styles/receiptInterface.css").toString()); // Style Sheet
+        stage.getIcons().add(new Image(receiptUIcontroller.class.getResourceAsStream("images/titleLogo.png"))); // Set window Icon
+        stage.setAlwaysOnTop(true); // Set Window always on top
+        stage.setResizable(false); // Set window resize disabled
+        stage.initModality(Modality.APPLICATION_MODAL); // Defines a modal window that blocks events from being delivered to any other application window.
         stage.setScene(new Scene(root,600,391));
         stage.show();
-        saveAndprintPDF(root);
+        saveAndprintPDF(root); // Invoke saveAndprintPDF method
     }
 
     @FXML
@@ -67,18 +71,24 @@ public class receiptUIcontroller {
     @FXML
     private Label dateLabel2;
 
+    /**
+     * In this Method Show Date In Receipt Window
+     */
     @FXML
     public void initialize() {
-        LocalDateTime myDateObj = LocalDateTime.now();
-        DateTimeFormatter dayFormat1 = DateTimeFormatter.ofPattern("E MMMM yyyy");
+        LocalDateTime myDateObj = LocalDateTime.now(); // create new LocalDateTime object
+        DateTimeFormatter dayFormat1 = DateTimeFormatter.ofPattern("E MMMM yyyy"); // set date string pattern
         String dateLabel1Text = myDateObj.format(dayFormat1);
-        dateLabel1.setText(dateLabel1Text);
+        dateLabel1.setText(dateLabel1Text); // set string on Label
         DateTimeFormatter dayFormat2 = DateTimeFormatter.ofPattern("dd/MM/yy");
         String dateLabel2Text = myDateObj.format(dayFormat2);
         dateLabel2.setText(dateLabel2Text);
-        bodyTextChanger();
+        bodyTextChanger(); // Invoke bodyTextChanger Method
     }
 
+    /**
+     * This Method Take user Inputs from Main Window and parse it to Receipt window fields
+     */
     void bodyTextChanger() {
         String nameText = mainUIcontroller.getNameFieldText();
         String ageText = mainUIcontroller.getAgeFieldText();
@@ -93,7 +103,7 @@ public class receiptUIcontroller {
         nameLabel.setText("Full Name:            " + nameText);
         ageLabel.setText("Age:                      " + ageText);
         cityLabel.setText("City:                      " + cityText);
-        switch (vText) {
+        switch (vText) { // detects which booth selected
             case "1" -> {
                 vaccinationType = "AstraZeneca";
                 if (boothText.equals("0")) {
@@ -123,6 +133,10 @@ public class receiptUIcontroller {
         bNoLabel.setText("#" + booth);
     }
 
+    /**
+     * This Method Save Receipt window as an Image and Save it as a PDF
+     * @param root Root Node
+     */
     private static void saveAndprintPDF(Parent root) {
         WritableImage nodeshot = root.snapshot(new SnapshotParameters(), null);
         File file = new File("receipt.png");
@@ -154,13 +168,16 @@ public class receiptUIcontroller {
         }
     }
 
+    /**
+     * This Method shows PDF and Image Save Completion Information Alert Window
+     */
     private static void infoAlert() {
-        Alert infoAlert = new Alert(Alert.AlertType.INFORMATION);
+        Alert infoAlert = new Alert(Alert.AlertType.INFORMATION); // Make Alert type as Information
         Stage stage = (Stage) infoAlert.getDialogPane().getScene().getWindow();
-        stage.setAlwaysOnTop(true);
-        stage.getIcons().add(new Image(Objects.requireNonNull(mainUIcontroller.class.getResourceAsStream("images/titleLogo.png"))));
-        infoAlert.setTitle("Save and Print PDF");
-        infoAlert.setHeaderText("Image and PDF Saved Successfully!");
-        infoAlert.showAndWait();
+        stage.setAlwaysOnTop(true); // Make alert always on top
+        stage.getIcons().add(new Image(Objects.requireNonNull(mainUIcontroller.class.getResourceAsStream("images/titleLogo.png")))); // alert window Icon
+        infoAlert.setTitle("Save and Print PDF"); // Alert Window Title
+        infoAlert.setHeaderText("Image and PDF Saved Successfully!"); // Set Alert window header text
+        infoAlert.showAndWait(); // display alert
     }
 }

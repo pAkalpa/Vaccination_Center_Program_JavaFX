@@ -99,16 +99,22 @@ public class mainUIcontroller {
         return boothNo;
     }
 
+    /**
+     * This Method Display Live Date and Time on Application
+     */
     @FXML
     public void initialize() {
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-            dateTimeLabel.setText(LocalDateTime.now().format(formatter));
+            dateTimeLabel.setText(LocalDateTime.now().format(formatter)); // set date and time to label
         }), new KeyFrame(Duration.seconds(1)));
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
     }
 
+    /**
+     * This Method Disable Radio button 2 to 5
+     */
     @FXML
     void disableSet1() {
         booth0.setDisable(false);
@@ -123,6 +129,9 @@ public class mainUIcontroller {
         booth5.setSelected(false);
     }
 
+    /**
+     * This Method Disable Radio button 0 to 1 and 4 to 5
+     */
     @FXML
     void  disableSet2() {
         booth0.setDisable(true);
@@ -137,6 +146,9 @@ public class mainUIcontroller {
         booth5.setSelected(false);
     }
 
+    /**
+     * This Method Disable Radio button 0 to 3
+     */
     @FXML
     void  disableSet3() {
         booth0.setDisable(true);
@@ -151,6 +163,11 @@ public class mainUIcontroller {
         booth5.setDisable(false);
     }
 
+    /**
+     * This Method clear all inputs
+     * @param e Exception
+     * @throws IOException
+     */
     @FXML
     void clearAllInputs(ActionEvent e) throws IOException {
             Parent parent = FXMLLoader.load(getClass().getResource("mainUI.fxml"));
@@ -160,26 +177,34 @@ public class mainUIcontroller {
             stage.show();
     }
 
+    /**
+     * This Method Invoke Input validator and Invoke generateReceiptInterface Method in receiptUIcontroller class
+     * @throws Exception
+     */
     @FXML
     void generateReceipt() throws Exception {
         boolean isValid = inputValidator();
         if (isValid) {
-            receiptUIcontroller.generateReceiptInterface();
+            receiptUIcontroller.generateReceiptInterface(); // Invoke Method
         }
     }
 
+    /**
+     * @return User Inputs Valid or Not
+     */
     boolean inputValidator() {
         boolean radInput1 = false;
         boolean radInput2 = false;
 
-        ArrayList<String> messages = new ArrayList<String>();
-        StringBuilder errorMessage = new StringBuilder();
+        ArrayList<String> messages = new ArrayList<String>(); // Declare ArrayList named messages
+        StringBuilder errorMessage = new StringBuilder(); // define new StringBuilder Object named errorMessage
 
-        Object[] vTypes = vaccinationType.getToggles().toArray();
+        Object[] vTypes = vaccinationType.getToggles().toArray(); // Declare Object array called vTypes and store vaccinationType as Array
         Object[] vt1 = VT1.getToggles().toArray();
         Object[] vt2 = VT2.getToggles().toArray();
         Object[] vt3 = VT3.getToggles().toArray();
 
+//        Validates Inputs ------------------------------------------------------------------------
         if (fNameField.getText().equals("")) {
             messages.add("First Name Input Field is Empty!");
         }
@@ -200,7 +225,7 @@ public class mainUIcontroller {
             messages.add("NIC/Passport Input Field is Empty!");
         }
 
-        for (int i = 0; i < vTypes.length; i++) {
+        for (int i = 0; i < vTypes.length; i++) { // check for at least one radio button selected in vaccinationType toggle group
             if (vaccinationType.getSelectedToggle() == vTypes[i]) {
                 vType = Integer.toString(i + 1);
                 radInput1 = true;
@@ -208,7 +233,7 @@ public class mainUIcontroller {
             }
         }
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 2; i++) { // check for at least one radio button selected in VT1,VT2 or VT3 toggle group
             if (VT1.getSelectedToggle() == vt1[i] || VT2.getSelectedToggle() == vt2[i] || VT3.getSelectedToggle() == vt3[i]) {
                 boothNo = Integer.toString(i);
                 radInput2 = true;
@@ -221,18 +246,18 @@ public class mainUIcontroller {
         if (!radInput2) {
             messages.add("Vaccinating Booth Not Selected!");
         }
-
+//      If any of Input fields emptied or not entered valid data shows Error type Alert window
         if (messages.size() > 0) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.ERROR); // set alert window to error
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.setAlwaysOnTop(true);
-            stage.getIcons().add(new Image(Objects.requireNonNull(mainUIcontroller.class.getResourceAsStream("images/titleLogo.png"))));
-            alert.setTitle("Error in Inputs");
-            for (int i = 0; i < messages.size(); i++) {
+            stage.setAlwaysOnTop(true); // make alert window always on top
+            stage.getIcons().add(new Image(Objects.requireNonNull(mainUIcontroller.class.getResourceAsStream("images/titleLogo.png")))); // set alert window icon
+            alert.setTitle("Error in Inputs"); // set alert window title
+            for (int i = 0; i < messages.size(); i++) { // Show which are the errors in Alert window content area
                 errorMessage.append(messages.get(i)).append("\n");
             }
             alert.setHeaderText(null);
-            alert.setContentText(String.valueOf(errorMessage));
+            alert.setContentText(String.valueOf(errorMessage)); // show all error types
             alert.showAndWait();
             return false;
         } else {

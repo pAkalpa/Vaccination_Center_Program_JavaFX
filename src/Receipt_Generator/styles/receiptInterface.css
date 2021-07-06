@@ -1,9 +1,11 @@
+/*Main Container Style----------------------------------------------------------------*/
 #containerApane {
     -fx-background-image: url('../images/receiptBG.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
 
+/*Separator Style----------------------------------------------------------------*/
 #separator1 *.line, #separator2 *.line {
     -fx-border-style: solid;
     -fx-border-width: 0 0 1 0;
@@ -11,28 +13,34 @@
     /*-fx-padding: 0 -5 0 0;*/
 }
 
+/*Text Color Style----------------------------------------------------------------*/
 #titleLabel, #dateLabel1, #dateLabel2, #adviceLabel, #bodyTitleLabel, #nameLabel, #ageLabel, #cityLabel, #idLabel, #vTypeTitle, #bNoTitle, #dateTitle
 , #vTypeLabel, #bNoLabel, #dateLabel2, #thankLabel, #noteLabel {
     -fx-text-fill: black;
 }
 
+/*Main Title Style----------------------------------------------------------------*/
 #titleLabel {
     -fx-font-size: 23px;
     -fx-font-family: Verdana;
 }
 
+/*Date Label Style----------------------------------------------------------------*/
 #dateLabel1 {
     -fx-font-size: 10px;
 }
 
+/*Text Style----------------------------------------------------------------*/
 #adviceLabel, #bodyTitleLabel, #thankLabel{
     -fx-font-size: 13px;
 }
 
+/*Body Title Style----------------------------------------------------------------*/
 #vTypeTitle, #bNoTitle, #dateTitle {
     -fx-font-weight: bolder;
 }
 
+/*Note Label Style----------------------------------------------------------------*/
 #noteLabel {
     -fx-font-size: 9px;
     -fx-text-fill: red;
