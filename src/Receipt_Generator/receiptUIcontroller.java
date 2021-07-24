@@ -77,7 +77,7 @@ public class receiptUIcontroller {
     @FXML
     public void initialize() {
         LocalDateTime myDateObj = LocalDateTime.now(); // create new LocalDateTime object
-        DateTimeFormatter dayFormat1 = DateTimeFormatter.ofPattern("E MMMM yyyy"); // set date string pattern
+        DateTimeFormatter dayFormat1 = DateTimeFormatter.ofPattern("E MMMM yyyy HH:mm"); // set date string pattern
         String dateLabel1Text = myDateObj.format(dayFormat1);
         dateLabel1.setText(dateLabel1Text); // set string on Label
         DateTimeFormatter dayFormat2 = DateTimeFormatter.ofPattern("dd/MM/yy");

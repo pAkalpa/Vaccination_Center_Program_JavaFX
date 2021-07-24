@@ -8,6 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="JavaFX-16" level="application" />
-    <orderEntry type="library" name="pdfbox-app-2.0.24" level="project" />
+    <orderEntry type="library" name="pdfbox-app-2.0.24" level="application" />
   </component>
 </module>

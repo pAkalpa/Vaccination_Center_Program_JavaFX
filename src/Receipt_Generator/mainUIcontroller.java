@@ -215,7 +215,7 @@ public class mainUIcontroller {
             messages.add("Age Input Field is Empty!");
         } else if (!(ageField.getText().matches("^[0-9]*$"))) {
             messages.add("Non Numeric Age Field Input Detected!");
-        } else if (Integer.parseInt(ageField.getText()) <= 0 || Integer.parseInt(ageField.getText()) >= 120) {
+        } else if (Integer.parseInt(ageField.getText()) <= 10 || Integer.parseInt(ageField.getText()) >= 110) {
             messages.add("Out of Range Age Field Input Detected!");
         }
         if (cityField.getText().equals("")) {
